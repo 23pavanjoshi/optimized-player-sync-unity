@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optimized Player Sync (Unity Demo)</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 40px;
+        background-color: #0d1117;
+        color: #c9d1d9;
+    }
+    h1, h2, h3 {
+        color: #58a6ff;
+    }
+    code, pre {
+        background: #161b22;
+        padding: 10px;
+        display: block;
+        border-radius: 5px;
+        overflow-x: auto;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    table, th, td {
+        border: 1px solid #30363d;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #161b22;
+    }
+    a {
+        color: #58a6ff;
+    }
+</style>
+</head>
+<body>
+
+<h1>🎮 Optimized Player Sync (Unity Demo)</h1>
+<p><strong>Reducing bandwidth without sacrificing smooth gameplay</strong></p>
+
+<h2>✨ Highlights</h2>
+<ul>
+<li>Reduced position data size (vs 96-bit float transmission)</li>
+<li>Efficient data quantization & packing</li>
+<li>Smooth remote player movement using interpolation</li>
+<li>Debug visualization of sent vs received data</li>
+<li>Real-world multiplayer optimization principles</li>
+</ul>
+
+<h2>🎥 Demo Reference</h2>
+<p><a href="https://www.youtube.com/watch?v=oKGY3mlgnnc&feature=youtu.be" target="_blank">
+Watch Demo Video</a></p>
+
+<h2>🧠 Problem</h2>
+<p>Sending player position using 3 floats (96 bits) at high frequency increases bandwidth usage.</p>
+
+<h2>🚀 Approach</h2>
+
+<h3>📦 Data Compression</h3>
+<ul>
+<li>Reduce float precision</li>
+<li>Apply quantization</li>
+<li>Optional packing into smaller types</li>
+</ul>
+
+<h3>📡 Transmission</h3>
+<p>Simulated locally using function calls (no networking library).</p>
+
+<h3>🔄 Reconstruction</h3>
+<p>Decode compressed values and rebuild approximate position.</p>
+
+<h3>🎯 Smooth Movement</h3>
+<p>Use interpolation (Lerp) to avoid jitter.</p>
+
+<h2>🧪 Debug Output</h2>
+<pre>
+[Send]
+Position: (1.234, 0.000, 5.678)
+Data Size: 32 bits
+
+[Receive]
+Decoded Position: (1.23, 0.00, 5.67)
+</pre>
+
+<h2>🕹️ Controls</h2>
+<table>
+<tr><th>Action</th><th>Key</th></tr>
+<tr><td>Move Forward</td><td>W</td></tr>
+<tr><td>Move Back</td><td>S</td></tr>
+<tr><td>Move Left</td><td>A</td></tr>
+<tr><td>Move Right</td><td>D</td></tr>
+</table>
+
+<h2>🏗️ Architecture</h2>
+<pre>
+Scripts/
+├── PlayerController.cs
+├── DataCompressor.cs
+├── RemotePlayer.cs
+└── DebugLogger.cs
+</pre>
+
+<h2>📊 Comparison</h2>
+<table>
+<tr><th>Metric</th><th>Without Optimization</th><th>With Optimization</th></tr>
+<tr><td>Data per update</td><td>96 bits</td><td>24–32 bits</td></tr>
+<tr><td>Bandwidth usage</td><td>High</td><td>Reduced</td></tr>
+<tr><td>Smoothness</td><td>Good</td><td>Smooth</td></tr>
+</table>
+
+<h2>💡 Key Learnings</h2>
+<ul>
+<li>Precision vs bandwidth trade-off</li>
+<li>Importance of interpolation</li>
+<li>Multiplayer optimization fundamentals</li>
+</ul>
+
+<h2>🚧 Future Scope</h2>
+<ul>
+<li>Integrate real networking</li>
+<li>Add latency simulation</li>
+<li>Client-side prediction</li>
+<li>Delta compression</li>
+</ul>
+
+<h2>👨‍💻 About</h2>
+<p>Unity Developer with 8+ years experience in game development and performance optimization.</p>
+
+<h2>⭐ Why This Matters</h2>
+<p>This project demonstrates practical multiplayer engineering skills including optimization, efficiency, and smooth gameplay experience.</p>
+
+</body>
+</html>
